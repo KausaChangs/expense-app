@@ -7,7 +7,7 @@ export class AppController {
     return [];
   }
 
-  @Get('id')
+  @Get(':id')
   getIncomeReportById() {
     return {};
   }
