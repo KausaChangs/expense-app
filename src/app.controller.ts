@@ -19,6 +19,11 @@ export class AppController {
 
   @Put(':id')
   updateReport() {
-    return 'Updated';
+    return 'updated';
+  }
+
+  @Delete(':id')
+  deleteReport() {
+    return 'deleted';
   }
 }
