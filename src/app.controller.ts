@@ -17,6 +17,8 @@ export class AppController {
     return 'created';
   }
 
-  @Put()
-  updateReport() {}
+  @Put(':id')
+  updateReport() {
+    return 'Updated';
+  }
 }
