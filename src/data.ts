@@ -1,4 +1,4 @@
-const data: Data = {
+export const data: Data = {
   report: [],
 };
 
