@@ -1,4 +1,4 @@
-const data = {
+const data: Data = {
   report: [],
 };
 
@@ -9,6 +9,11 @@ interface Data {
     amount: number;
     created_at: Date;
     update_at: Date;
-    type: string;
+    type: ReportType;
   }[];
+}
+
+enum ReportType {
+  INCOME = 'income',
+  EXPENSE = 'expense',
 }
