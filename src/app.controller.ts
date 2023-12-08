@@ -12,7 +12,11 @@ export class AppController {
   }
 
   @Get(':id')
-  getReportById() {
+  getReportById(@Param('type') type: string, @Param('id') id: string) {
+    console.log({
+      type,
+      id,
+    });
     return {};
   }
 
