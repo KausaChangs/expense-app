@@ -13,10 +13,8 @@ export class AppController {
 
   @Get(':id')
   getReportById(@Param('type') type: string, @Param('id') id: string) {
-    console.log({
-      type,
-      id,
-    });
+    const reportType =
+      type === 'income' ? ReportType.INCOME : ReportType.EXPENSE;
     return {};
   }
 
