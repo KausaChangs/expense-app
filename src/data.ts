@@ -10,7 +10,7 @@ export const data: Data = {
       source: 'salary',
       amount: 7500,
       created_at: new Date(),
-      update_at: new Date(),
+      updated_at: new Date(),
       type: ReportType.INCOME,
     },
     {
@@ -18,7 +18,7 @@ export const data: Data = {
       source: 'Mundia',
       amount: 6000,
       created_at: new Date(),
-      update_at: new Date(),
+      updated_at: new Date(),
       type: ReportType.INCOME,
     },
     {
@@ -26,7 +26,7 @@ export const data: Data = {
       source: 'Food',
       amount: 2000,
       created_at: new Date(),
-      update_at: new Date(),
+      updated_at: new Date(),
       type: ReportType.EXPENSE,
     },
   ],
@@ -38,7 +38,7 @@ interface Data {
     source: string;
     amount: number;
     created_at: Date;
-    update_at: Date;
+    updated_at: Date;
     type: ReportType;
   }[];
 }
