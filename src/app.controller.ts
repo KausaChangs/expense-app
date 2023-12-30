@@ -7,6 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
+import { findIndex } from 'rxjs';
 import { data, ReportType } from 'src/data';
 import { v4 as uuid } from 'uuid';
 
@@ -47,8 +48,29 @@ export class AppController {
   }
 
   @Put(':id')
-  updateReport() {
-    return 'updated';
+  updateReport(
+    @Param('type') type: string,
+    @Param('id') id: string,
+    @Body() body: { amount: number; source: string },
+  ) {
+    const reportType =
+      type === 'income' ? ReportType.INCOME : ReportType.EXPENSE;
+    const reportToUpdate = data.report
+      .filter((report) => report.type === reportType)
+      .find((report) => report.id === id);
+
+    if (!reportToUpdate) return;
+
+    const reportIndex = data.report.findIndex(
+      (report) => report.id === reportToUpdate.id,
+    );
+
+    data.report[reportIndex] = {
+      ...data.report[reportIndex],
+      ...body,
+    };
+
+    return data.report[reportIndex];
   }
 
   @Delete(':id')
