@@ -7,6 +7,7 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
+import { report } from 'process';
 import { findIndex } from 'rxjs';
 import { data, ReportType } from 'src/data';
 import { v4 as uuid } from 'uuid';
@@ -74,7 +75,7 @@ export class AppController {
   }
 
   @Delete(':id')
-  deleteReport() {
-    return 'deleted';
+  deleteReport(@Param('id') id: string) {
+    const reportIndex = data.report.findIndex((report) => report.id === id);
   }
 }
