@@ -12,9 +12,12 @@ import { report } from 'process';
 import { findIndex } from 'rxjs';
 import { data, ReportType } from 'src/data';
 import { v4 as uuid } from 'uuid';
+import { AppService } from './app.service';
 
 @Controller('report/:type')
 export class AppController {
+  constructor(private readonly appService: AppService) {}
+
   @Get()
   getAllReports(@Param('type') type: string) {
     const reportType =
